@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Dr. Freddy Vivas — medicina estética. Resultados naturales, toxina botulínica, rellenos y bioestimuladores."
+    />
+    <title>Dr. Freddy Vivas | Medicina estética</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Manrope:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main" data-i18n="skip">Saltar al contenido</a>
+
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="logo" href="#">Dr. Freddy Vivas</a>
+        <nav class="nav" aria-label="Principal">
+          <button
+            type="button"
+            class="nav__toggle"
+            aria-expanded="false"
+            aria-controls="nav-menu"
+            data-nav-toggle
+          >
+            <span class="nav__toggle-bar" aria-hidden="true"></span>
+            <span class="nav__toggle-bar" aria-hidden="true"></span>
+            <span class="visually-hidden" data-i18n="nav_menu">Menú</span>
+          </button>
+          <ul id="nav-menu" class="nav__list">
+            <li><a href="#valor" data-i18n="nav_value">Enfoque</a></li>
+            <li><a href="#casos" data-i18n="nav_cases">Casos</a></li>
+            <li><a href="#procedimientos" data-i18n="nav_procedures">Procedimientos</a></li>
+            <li><a href="#testimonios" data-i18n="nav_testimonials">Testimonios</a></li>
+            <li><a href="#contacto" data-i18n="nav_contact">Contacto</a></li>
+          </ul>
+        </nav>
+        <div class="lang" role="group" aria-label="Idioma">
+          <button type="button" class="lang__btn lang__btn--active" data-lang="es" aria-pressed="true">
+            ES
+          </button>
+          <button type="button" class="lang__btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero__media" aria-hidden="true">
+          <div class="hero__gradient"></div>
+          <div class="hero__bg" data-hero-bg role="presentation"></div>
+        </div>
+        <div class="hero__content">
+          <p class="hero__kicker" data-i18n="hero_kicker">Medicina estética</p>
+          <h1 id="hero-title" class="hero__title">Dr. Freddy Vivas</h1>
+          <p class="hero__lead" data-i18n="hero_lead">
+            Resultados elegantes y naturales, con un enfoque sereno y basado en seguridad.
+          </p>
+          <div class="hero__actions">
+            <a
+              class="btn btn--primary"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-i18n="hero_whatsapp"
+              data-whatsapp
+            >
+              Escribir por WhatsApp
+            </a>
+            <a class="btn btn--ghost" href="#casos" data-i18n="hero_cases">Ver casos</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="valor" class="value section">
+        <div class="section__inner">
+          <header class="section__header">
+            <h2 class="section__title" data-i18n="value_title">Un enfoque que inspira confianza</h2>
+            <p class="section__subtitle" data-i18n="value_subtitle">
+              Tres pilares que guían cada consulta y cada plan de tratamiento.
+            </p>
+          </header>
+          <ul class="value__grid">
+            <li class="value__card">
+              <span class="value__index" aria-hidden="true">01</span>
+              <h3 class="value__card-title" data-i18n="value_1_title">Naturalidad y proporción</h3>
+              <p class="value__card-text" data-i18n="value_1_text">
+                Priorizamos armonía facial y resultados que se sienten auténticos, sin excesos.
+              </p>
+            </li>
+            <li class="value__card">
+              <span class="value__index" aria-hidden="true">02</span>
+              <h3 class="value__card-title" data-i18n="value_2_title">Experiencia clínica</h3>
+              <p class="value__card-text" data-i18n="value_2_text">
+                Protocolos cuidados en toxina botulínica, rellenos de ácido hialurónico y bioestimuladores.
+              </p>
+            </li>
+            <li class="value__card">
+              <span class="value__index" aria-hidden="true">03</span>
+              <h3 class="value__card-title" data-i18n="value_3_title">Acompañamiento claro</h3>
+              <p class="value__card-text" data-i18n="value_3_text">
+                Explicación honesta de opciones, tiempos de evolución y qué esperar en cada etapa.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="casos" class="cases section">
+        <div class="section__inner">
+          <header class="section__header">
+            <h2 class="section__title" data-i18n="cases_title">Antes y después</h2>
+            <p class="section__subtitle" data-i18n="cases_subtitle">
+              Selección de casos. Arrastra el divisor o desliza en el móvil para comparar.
+            </p>
+          </header>
+
+          <div class="cases__filters" role="tablist" aria-label="Filtrar por tratamiento">
+            <button type="button" class="chip chip--active" data-filter="all" role="tab" aria-selected="true">
+              <span data-i18n="filter_all">Todos</span>
+            </button>
+            <button type="button" class="chip" data-filter="toxina" role="tab" aria-selected="false">
+              <span data-i18n="filter_toxina">Toxina botulínica</span>
+            </button>
+            <button type="button" class="chip" data-filter="rellenos" role="tab" aria-selected="false">
+              <span data-i18n="filter_rellenos">Rellenos</span>
+            </button>
+            <button type="button" class="chip" data-filter="bio" role="tab" aria-selected="false">
+              <span data-i18n="filter_bio">Bioestimuladores</span>
+            </button>
+          </div>
+
+          <div class="cases__grid" data-cases-grid>
+            <!-- Toxina -->
+            <article class="case-card" data-category="toxina">
+              <div
+                class="ba"
+                role="img"
+                aria-label="Comparación antes y después"
+                data-ba
+                style="--ba-pos: 50%"
+              >
+                <div class="ba__layer ba__layer--after" data-ba-after></div>
+                <div class="ba__layer ba__layer--before" data-ba-before></div>
+                <div class="ba__handle" data-ba-handle>
+                  <span class="ba__handle-knob" aria-hidden="true"></span>
+                </div>
+                <span class="ba__label ba__label--before" data-i18n="ba_before">Antes</span>
+                <span class="ba__label ba__label--after" data-i18n="ba_after">Después</span>
+              </div>
+              <div class="case-card__meta">
+                <h3 class="case-card__title" data-i18n="case1_title">Zona superior del tercio facial</h3>
+                <dl class="case-card__dl">
+                  <div>
+                    <dt data-i18n="meta_zone">Zona</dt>
+                    <dd data-i18n="case1_zone">Frente y entrecejo</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="meta_technique">Técnica</dt>
+                    <dd data-i18n="case1_tech">Toxina botulínica</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="meta_time">Tiempo</dt>
+                    <dd data-i18n="case1_time">14 días post-tratamiento</dd>
+                  </div>
+                </dl>
+              </div>
+            </article>
+
+            <article class="case-card" data-category="toxina">
+              <div class="ba" role="img" aria-label="Comparación antes y después" data-ba style="--ba-pos: 50%">
+                <div class="ba__layer ba__layer--after" data-ba-after></div>
+                <div class="ba__layer ba__layer--before" data-ba-before></div>
+                <div class="ba__handle" data-ba-handle>
+                  <span class="ba__handle-knob" aria-hidden="true"></span>
+                </div>
+                <span class="ba__label ba__label--before" data-i18n="ba_before">Antes</span>
+                <span class="ba__label ba__label--after" data-i18n="ba_after">Después</span>
+              </div>
+              <div class="case-card__meta">
+                <h3 class="case-card__title" data-i18n="case2_title">Mirada en reposo más descansada</h3>
+                <dl class="case-card__dl">
+                  <div>
+                    <dt data-i18n="meta_zone">Zona</dt>
+                    <dd data-i18n="case2_zone">Patitas de gallo</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="meta_technique">Técnica</dt>
+                    <dd data-i18n="case2_tech">Toxina botulínica</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="meta_time">Tiempo</dt>
+                    <dd data-i18n="case2_time">12 días post-tratamiento</dd>
+                  </div>
+                </dl>
+              </div>
+            </article>
+
+            <!-- Rellenos -->
+            <article class="case-card" data-category="rellenos">
+              <div class="ba" role="img" aria-label="Comparación antes y después" data-ba style="--ba-pos: 50%">
+                <div class="ba__layer ba__layer--after" data-ba-after></div>
+                <div class="ba__layer ba__layer--before" data-ba-before></div>
+                <div class="ba__handle" data-ba-handle>
+                  <span class="ba__handle-knob" aria-hidden="true"></span>
+                </div>
+                <span class="ba__label ba__label--before" data-i18n="ba_before">Antes</span>
+                <span class="ba__label ba__label--after" data-i18n="ba_after">Después</span>
+              </div>
+              <div class="case-card__meta">
+                <h3 class="case-card__title" data-i18n="case3_title">Armonía del perfil medio</h3>
+                <dl class="case-card__dl">
+                  <div>
+                    <dt data-i18n="meta_zone">Zona</dt>
+                    <dd data-i18n="case3_zone">Surcos nasogenianos</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="meta_technique">Técnica</dt>
+                    <dd data-i18n="case3_tech">Relleno con ácido hialurónico</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="meta_time">Tiempo</dt>
+                    <dd data-i18n="case3_time">Inmediato / control a las 2 semanas</dd>
+                  </div>
+                </dl>
+              </div>
+            </article>
+
+            <article class="case-card" data-category="rellenos">
+              <div class="ba" role="img" aria-label="Comparación antes y después" data-ba style="--ba-pos: 50%">
+                <div class="ba__layer ba__layer--after" data-ba-after></div>
+                <div class="ba__layer ba__layer--before" data-ba-before></div>
+                <div class="ba__handle" data-ba-handle>
+                  <span class="ba__handle-knob" aria-hidden="true"></span>
+                </div>
+                <span class="ba__label ba__label--before" data-i18n="ba_before">Antes</span>
+                <span class="ba__label ba__label--after" data-i18n="ba_after">Después</span>
+              </div>
+              <div class="case-card__meta">
+                <h3 class="case-card__title" data-i18n="case4_title">Hidratación y volumen labial moderado</h3>
+                <dl class="case-card__dl">
+                  <div>
+                    <dt data-i18n="meta_zone">Zona</dt>
+                    <dd data-i18n="case4_zone">Labios</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="meta_technique">Técnica</dt>
+                    <dd data-i18n="case4_tech">Relleno con ácido hialurónico</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="meta_time">Tiempo</dt>
+                    <dd data-i18n="case4_time">7 días post-tratamiento</dd>
+                  </div>
+                </dl>
+              </div>
+            </article>
+
+            <!-- Bioestimuladores -->
+            <article class="case-card" data-category="bio">
+              <div class="ba" role="img" aria-label="Comparación antes y después" data-ba style="--ba-pos: 50%">
+                <div class="ba__layer ba__layer--after" data-ba-after></div>
+                <div class="ba__layer ba__layer--before" data-ba-before></div>
+                <div class="ba__handle" data-ba-handle>
+                  <span class="ba__handle-knob" aria-hidden="true"></span>
+                </div>
+                <span class="ba__label ba__label--before" data-i18n="ba_before">Antes</span>
+                <span class="ba__label ba__label--after" data-i18n="ba_after">Después</span>
+              </div>
+              <div class="case-card__meta">
+                <h3 class="case-card__title" data-i18n="case5_title">Calidad de piel y firmeza progresiva</h3>
+                <dl class="case-card__dl">
+                  <div>
+                    <dt data-i18n="meta_zone">Zona</dt>
+                    <dd data-i18n="case5_zone">Mejillas y línea mandibular</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="meta_technique">Técnica</dt>
+                    <dd data-i18n="case5_tech">Bioestimulador de colágeno</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="meta_time">Tiempo</dt>
+                    <dd data-i18n="case5_time">8 semanas (serie según plan)</dd>
+                  </div>
+                </dl>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="procedimientos" class="procedures section">
+        <div class="section__inner">
+          <header class="section__header">
+            <h2 class="section__title" data-i18n="proc_title">Procedimientos</h2>
+            <p class="section__subtitle" data-i18n="proc_subtitle">
+              Tratamientos frecuentes en consulta. La indicación es siempre personalizada.
+            </p>
+          </header>
+          <ul class="procedures__list">
+            <li data-i18n="proc_1">Toxina botulínica para líneas de expresión</li>
+            <li data-i18n="proc_2">Rellenos con ácido hialurónico</li>
+            <li data-i18n="proc_3">Bioestimuladores de colágeno</li>
+            <li data-i18n="proc_4">Armonización facial conservadora</li>
+            <li data-i18n="proc_5">Plan combinado según evaluación médica</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="testimonios" class="testimonials section">
+        <div class="section__inner">
+          <header class="section__header">
+            <h2 class="section__title" data-i18n="test_title">Testimonios</h2>
+            <p class="section__subtitle" data-i18n="test_subtitle">Experiencias compartidas por pacientes.</p>
+          </header>
+          <div class="testimonials__grid">
+            <blockquote class="quote">
+              <p data-i18n="test_1">“Muy claro en la explicación y un resultado natural. Me sentí acompañada en todo el proceso.”</p>
+              <footer>— <span data-i18n="test_1_author">A. M.</span></footer>
+            </blockquote>
+            <blockquote class="quote">
+              <p data-i18n="test_2">“Profesional y calmado. El seguimiento post-tratamiento dio mucha confianza.”</p>
+              <footer>— <span data-i18n="test_2_author">R. G.</span></footer>
+            </blockquote>
+            <blockquote class="quote">
+              <p data-i18n="test_3">“Sin apariencia artificial. Exactamente el enfoque que buscaba.”</p>
+              <footer>— <span data-i18n="test_3_author">L. P.</span></footer>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      <section id="contacto" class="contact section">
+        <div class="section__inner section__inner--narrow">
+          <header class="section__header">
+            <h2 class="section__title" data-i18n="contact_title">Contacto</h2>
+            <p class="section__subtitle" data-i18n="contact_subtitle">
+              Escríbenos por WhatsApp para resolver dudas o coordinar una valoración.
+            </p>
+          </header>
+          <a
+            class="btn btn--primary btn--block"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-i18n="contact_whatsapp"
+            data-whatsapp
+          >
+            Abrir WhatsApp
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <p class="site-footer__brand">Dr. Freddy Vivas</p>
+        <p class="site-footer__legal" data-i18n="legal">
+          Las imágenes se publican con consentimiento informado y fines ilustrativos. Los resultados varían según
+          anatomía, edad, técnica y plan individual. La información de este sitio no sustituye una consulta médica ni
+          constituye una relación médico-paciente.
+        </p>
+        <p class="site-footer__copy"><span data-i18n="footer_copy">©</span> <span data-year></span> Dr. Freddy Vivas</p>
+      </div>
+    </footer>
+
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
