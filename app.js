@@ -69,7 +69,7 @@
       case6_title: "Reestructuración cigomática y mirada más descansada",
       case6_zone: "Pómulos, ojeras, labios y tercio superior",
       case6_tech:
-        "Ácido hialurónico (cigomas y labios), toxina botulínica, bioestimulador de colágeno y NCF en ojeras (líneas finas e hidratación)",
+        "Ácido hialurónico (área cigomática y labios), toxina botulínica, bioestimulador de colágeno y NCF en ojeras (líneas finas e hidratación)",
       case6_time: "Evolución según cada técnica y control médico",
       case5_title: "Calidad de piel y firmeza progresiva",
       case5_zone: "Mejillas y línea mandibular",
