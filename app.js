@@ -4,6 +4,15 @@
   const cfg = window.SITE_CONFIG || {};
   const WHATSAPP_BASE = "https://wa.me/";
 
+  function mediaUrl(url) {
+    if (!url) return url;
+    const v = cfg.mediaVersion;
+    if (v == null || v === "") return url;
+    const u = String(url);
+    const sep = u.indexOf("?") >= 0 ? "&" : "?";
+    return u + sep + "v=" + encodeURIComponent(String(v));
+  }
+
   const STRINGS = {
     es: {
       skip: "Saltar al contenido",
@@ -49,14 +58,19 @@
       case2_zone: "Patitas de gallo",
       case2_tech: "Toxina botulínica",
       case2_time: "12 días post-tratamiento",
-      case3_title: "Armonía del perfil medio",
-      case3_zone: "Surcos nasogenianos",
+      case3_title: "Armonización femenina: tercio medio e inferior",
+      case3_zone: "Tercio medio, tercio inferior y jawline",
       case3_tech: "Relleno con ácido hialurónico",
-      case3_time: "Inmediato / control a las 2 semanas",
+      case3_time: "Inmediato / control según plan",
       case4_title: "Hidratación y volumen labial moderado",
       case4_zone: "Labios",
       case4_tech: "Relleno con ácido hialurónico",
       case4_time: "7 días post-tratamiento",
+      case6_title: "Reestructuración cigomática y mirada más descansada",
+      case6_zone: "Pómulos, ojeras, labios y tercio superior",
+      case6_tech:
+        "Ácido hialurónico (cigomas y labios), toxina botulínica, bioestimulador de colágeno y NCF en ojeras (líneas finas e hidratación)",
+      case6_time: "Evolución según cada técnica y control médico",
       case5_title: "Calidad de piel y firmeza progresiva",
       case5_zone: "Mejillas y línea mandibular",
       case5_tech: "Bioestimulador de colágeno",
@@ -129,14 +143,19 @@
       case2_zone: "Crow's feet",
       case2_tech: "Neuromodulator",
       case2_time: "12 days post-treatment",
-      case3_title: "Midface harmony",
-      case3_zone: "Nasolabial folds",
+      case3_title: "Feminine harmonization: mid and lower face",
+      case3_zone: "Midface, lower third and jawline",
       case3_tech: "Hyaluronic acid filler",
-      case3_time: "Immediate / follow-up at 2 weeks",
+      case3_time: "Immediate / follow-up per plan",
       case4_title: "Subtle lip hydration and volume",
       case4_zone: "Lips",
       case4_tech: "Hyaluronic acid filler",
       case4_time: "7 days post-treatment",
+      case6_title: "Cheekbone refinement and a brighter look",
+      case6_zone: "Cheekbones, under-eyes, lips and upper third",
+      case6_tech:
+        "HA (cheeks and lips), neuromodulator, collagen biostimulator, and NCF under the eyes (fine lines and hydration)",
+      case6_time: "Timeline varies by modality; medical follow-up",
       case5_title: "Skin quality and progressive firmness",
       case5_zone: "Cheeks and jawline",
       case5_tech: "Collagen biostimulator",
@@ -218,7 +237,8 @@
     const src = cfg.heroImage;
     if (!el || !src) return;
     el.classList.add("has-image");
-    el.style.backgroundImage = "url('" + src.replace(/'/g, "\\'") + "')";
+    const resolved = mediaUrl(src);
+    el.style.backgroundImage = "url('" + resolved.replace(/'/g, "\\'") + "')";
     el.style.backgroundSize = "cover";
     el.style.backgroundPosition = "center top";
   }
@@ -234,10 +254,12 @@
       const layerAfter = card.querySelector("[data-ba-after]");
       if (!root || !layerBefore || !layerAfter) return;
       if (pair.after) {
-        layerAfter.style.backgroundImage = "url('" + pair.after.replace(/'/g, "\\'") + "')";
+        const u = mediaUrl(pair.after);
+        layerAfter.style.backgroundImage = "url('" + u.replace(/'/g, "\\'") + "')";
       }
       if (pair.before) {
-        layerBefore.style.backgroundImage = "url('" + pair.before.replace(/'/g, "\\'") + "')";
+        const u = mediaUrl(pair.before);
+        layerBefore.style.backgroundImage = "url('" + u.replace(/'/g, "\\'") + "')";
       }
       root.classList.add("has-images");
     });

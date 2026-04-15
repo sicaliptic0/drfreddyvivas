@@ -5,6 +5,12 @@
 window.SITE_CONFIG = {
   whatsappPhone: "REPLACE_PHONE",
 
+  /**
+   * Cambia este valor cuando sustituyas imágenes con el mismo nombre de archivo
+   * para que el navegador vuelva a descargarlas (?v=… en la URL).
+   */
+  mediaVersion: "20260415",
+
   /** Imagen del hero (opcional). Deja null para usar el fondo por defecto. */
   heroImage: "images/hero.JPG",
 
@@ -15,7 +21,8 @@ window.SITE_CONFIG = {
   caseImages: [
     { before: null, after: null },
     { before: null, after: null },
-    { before: null, after: null },
+    { before: "images/caso1antes.png", after: "images/caso1despues.png" },
+    { before: "images/caso2antes.png", after: "images/caso2despues.png" },
     { before: null, after: null },
     { before: null, after: null },
   ],
