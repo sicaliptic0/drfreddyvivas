@@ -467,24 +467,37 @@
         persistSession: true,
         autoRefreshToken: true,
         detectSessionInUrl: true,
+        flowType: "pkce",
       },
     });
 
     function redirectTo() {
       const base = window.location.origin + window.location.pathname;
-      return base + "#casos";
+      return base;
+    }
+
+    function scrollToCases() {
+      try {
+        document.getElementById("casos")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      } catch (_) {}
     }
 
     async function syncSession() {
       try {
         const sessionRes = await supa.auth.getSession();
         const session = sessionRes && sessionRes.data && sessionRes.data.session;
-        if (session) unlock();
+        if (session) {
+          unlock();
+          scrollToCases();
+        }
       } catch (_) {}
     }
 
     supa.auth.onAuthStateChange(function (_event, session) {
-      if (session) unlock();
+      if (session) {
+        unlock();
+        scrollToCases();
+      }
     });
 
     syncSession();
