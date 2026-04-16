@@ -768,6 +768,10 @@ a:hover {
   position: relative;
 }
 
+.cases__protected-content {
+  position: relative;
+}
+
 .cases.is-protected .cases__protected-content {
   filter: blur(14px);
   opacity: 0.35;

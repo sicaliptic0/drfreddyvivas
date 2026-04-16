@@ -541,8 +541,10 @@
 
         hintEl.textContent = t("protected_hint");
         setStatus("success", t("protected_status_sent"));
-      } catch (_) {
-        setStatus("error", t("protected_status_error"));
+      } catch (err) {
+        const msg = err && typeof err === "object" && "message" in err ? String(err.message || "") : "";
+        const extra = msg ? " (" + msg + ")" : "";
+        setStatus("error", t("protected_status_error") + extra);
       } finally {
         if (btn) btn.disabled = false;
         emailInput.disabled = false;
