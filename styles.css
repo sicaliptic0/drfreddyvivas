@@ -560,18 +560,27 @@ a:hover {
 }
 
 .cases__grid {
-  display: grid;
-  gap: 2.5rem;
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding: 0.25rem 0 0.75rem;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 1.25rem;
+  -webkit-overflow-scrolling: touch;
 }
 
-@media (min-width: 720px) {
-  .cases__grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem 1.5rem;
-  }
+.cases__grid::-webkit-scrollbar {
+  height: 4px;
+}
+
+.cases__grid::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
 }
 
 .case-card {
+  flex: 0 0 min(84%, 440px);
+  scroll-snap-align: start;
   background: var(--bg-elevated);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
@@ -581,6 +590,18 @@ a:hover {
 
 .case-card.is-hidden {
   display: none;
+}
+
+@media (min-width: 720px) {
+  .case-card {
+    flex-basis: min(46%, 520px);
+  }
+}
+
+@media (min-width: 1100px) {
+  .case-card {
+    flex-basis: min(38%, 560px);
+  }
 }
 
 /* Before / after slider */
@@ -696,27 +717,28 @@ a:hover {
 }
 
 .case-card__meta {
-  padding: 1.25rem 1.35rem 1.5rem;
+  padding: 0.9rem 1.05rem 1.05rem;
 }
 
 .case-card__title {
-  margin: 0 0 1rem;
+  margin: 0 0 0.55rem;
   font-family: var(--font-serif);
   font-size: 1.2rem;
   font-weight: 600;
+  line-height: 1.25;
 }
 
 .case-card__dl {
   margin: 0;
   display: grid;
-  gap: 0.65rem;
+  gap: 0.35rem;
 }
 
 .case-card__dl div {
   display: grid;
-  grid-template-columns: 6.5rem 1fr;
-  gap: 0.5rem;
-  align-items: baseline;
+  grid-template-columns: 5.2rem 1fr;
+  gap: 0.45rem;
+  align-items: start;
 }
 
 @media (max-width: 400px) {
@@ -736,8 +758,9 @@ a:hover {
 
 .case-card__dl dd {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: var(--text-muted);
+  line-height: 1.35;
 }
 
 /* Protected gallery (Antes/Después) */
@@ -863,31 +886,7 @@ a:hover {
   color: #bff0c9;
 }
 
-/* Carousel on mobile (swipe) while keeping filters */
-@media (max-width: 900px) {
-  .cases__grid {
-    display: flex;
-    gap: 1rem;
-    overflow-x: auto;
-    padding: 0.25rem 0 0.75rem;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .cases__grid::-webkit-scrollbar {
-    height: 4px;
-  }
-
-  .cases__grid::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.12);
-    border-radius: 999px;
-  }
-
-  .case-card {
-    flex: 0 0 min(84%, 420px);
-    scroll-snap-align: start;
-  }
-}
+/* Carousel is enabled across breakpoints (see .cases__grid / .case-card rules above) */
 
 /* Procedures */
 .procedures {
