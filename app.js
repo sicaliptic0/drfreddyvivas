@@ -98,6 +98,18 @@
       legal:
         "Las imágenes se publican con consentimiento informado y fines ilustrativos. Los resultados varían según anatomía, edad, técnica y plan individual. La información de este sitio no sustituye una consulta médica ni constituye una relación médico-paciente.",
       footer_copy: "©",
+      protected_title:
+        "🔒 Galería protegida — Estas fotos son de pacientes reales. Por su privacidad y dado que incluye imágenes clínicas, ingresa tu correo para acceder.",
+      protected_email_label: "Correo",
+      protected_cta: "Enviar enlace de acceso",
+      protected_consent: "Acepto recibir información y promociones (puedo darme de baja cuando quiera).",
+      protected_hint: "Te enviaremos un enlace para confirmar tu correo y desbloquear esta galería.",
+      protected_status_missing: "Configuración pendiente. Falta activar el sistema de acceso (Supabase).",
+      protected_status_sending: "Enviando enlace…",
+      protected_status_sent: "Listo. Revisa tu correo y abre el enlace para desbloquear la galería.",
+      protected_status_invalid: "Ingresa un correo válido.",
+      protected_status_error: "No se pudo enviar el enlace. Intenta de nuevo en unos minutos.",
+      protected_status_unlocked: "Acceso habilitado. Gracias.",
     },
     en: {
       skip: "Skip to content",
@@ -183,6 +195,18 @@
       legal:
         "Images are published with informed consent and for illustrative purposes. Outcomes vary with anatomy, age, technique, and individual planning. This website does not replace a medical consultation and does not establish a doctor–patient relationship.",
       footer_copy: "©",
+      protected_title:
+        "🔒 Protected gallery — These photos are from real patients. For privacy and because they include clinical images, enter your email to access.",
+      protected_email_label: "Email",
+      protected_cta: "Send access link",
+      protected_consent: "I agree to receive updates and promotions (I can unsubscribe anytime).",
+      protected_hint: "We’ll email you a link to confirm your address and unlock this gallery.",
+      protected_status_missing: "Setup pending. The access system (Supabase) is not configured.",
+      protected_status_sending: "Sending link…",
+      protected_status_sent: "Done. Check your inbox and open the link to unlock the gallery.",
+      protected_status_invalid: "Please enter a valid email.",
+      protected_status_error: "Couldn’t send the link. Please try again in a few minutes.",
+      protected_status_unlocked: "Access granted. Thank you.",
     },
   };
 
@@ -391,12 +415,135 @@
     if (el) el.textContent = String(new Date().getFullYear());
   }
 
+  function initProtectedGallery() {
+    const section = document.getElementById("casos");
+    if (!section) return;
+
+    const pg = cfg.protectedGallery || {};
+    if (!pg.enabled) return;
+
+    const overlay = section.querySelector("[data-protected-overlay]");
+    const statusEl = section.querySelector("[data-protected-status]");
+    const form = section.querySelector("[data-protected-form]");
+    const emailInput = section.querySelector("#protected-email");
+    const hintEl = section.querySelector("[data-protected-hint]");
+    if (!overlay || !statusEl || !form || !emailInput || !hintEl) return;
+
+    function t(key) {
+      const pack = STRINGS[currentLang] || STRINGS.es;
+      return (pack && pack[key]) || (STRINGS.es && STRINGS.es[key]) || "";
+    }
+
+    function setStatus(kind, text) {
+      statusEl.classList.toggle("is-error", kind === "error");
+      statusEl.classList.toggle("is-success", kind === "success");
+      statusEl.textContent = text || "";
+    }
+
+    function lock() {
+      section.classList.add("is-protected");
+      overlay.hidden = false;
+    }
+
+    function unlock() {
+      section.classList.remove("is-protected");
+      overlay.hidden = true;
+      setStatus("success", t("protected_status_unlocked"));
+    }
+
+    lock();
+
+    const sbCfg = (pg && pg.supabase) || {};
+    const sbUrl = String(sbCfg.url || "").trim();
+    const sbKey = String(sbCfg.anonKey || "").trim();
+
+    if (!sbUrl || !sbKey || !window.supabase || typeof window.supabase.createClient !== "function") {
+      setStatus("error", t("protected_status_missing"));
+      return;
+    }
+
+    const supa = window.supabase.createClient(sbUrl, sbKey, {
+      auth: {
+        persistSession: true,
+        autoRefreshToken: true,
+        detectSessionInUrl: true,
+      },
+    });
+
+    function redirectTo() {
+      const base = window.location.origin + window.location.pathname;
+      return base + "#casos";
+    }
+
+    async function syncSession() {
+      try {
+        const sessionRes = await supa.auth.getSession();
+        const session = sessionRes && sessionRes.data && sessionRes.data.session;
+        if (session) unlock();
+      } catch (_) {}
+    }
+
+    supa.auth.onAuthStateChange(function (_event, session) {
+      if (session) unlock();
+    });
+
+    syncSession();
+
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const email = String(emailInput.value || "").trim();
+      if (!email || email.indexOf("@") < 1) {
+        setStatus("error", t("protected_status_invalid"));
+        return;
+      }
+
+      const btn = form.querySelector("button[type='submit']");
+      const consent = !!form.querySelector("input[name='marketing_consent']")?.checked;
+
+      if (btn) btn.disabled = true;
+      emailInput.disabled = true;
+      setStatus("success", t("protected_status_sending"));
+
+      const table = String(sbCfg.leadsTable || "").trim();
+      if (table) {
+        try {
+          await supa.from(table).insert({
+            email: email,
+            marketing_consent: consent,
+            source: "protected_gallery",
+            locale: currentLang,
+          });
+        } catch (_) {}
+      }
+
+      try {
+        const res = await supa.auth.signInWithOtp({
+          email: email,
+          options: {
+            emailRedirectTo: redirectTo(),
+          },
+        });
+        if (res && res.error) throw res.error;
+
+        hintEl.textContent = t("protected_hint");
+        setStatus("success", t("protected_status_sent"));
+      } catch (_) {
+        setStatus("error", t("protected_status_error"));
+      } finally {
+        if (btn) btn.disabled = false;
+        emailInput.disabled = false;
+      }
+    });
+  }
+
   initLangToggle();
   initWhatsapp();
   initHeroImage();
   initCaseImages();
   initBeforeAfterSliders();
   initCaseFilters();
+  initProtectedGallery();
   initNav();
   initHeaderScroll();
   initYear();

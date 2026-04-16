@@ -26,4 +26,27 @@ window.SITE_CONFIG = {
     { before: "images/caso3antes.jpg", after: "images/caso3despues.jpg" },
     { before: null, after: null },
   ],
+
+  /**
+   * Galería protegida: bloquea y difumina la sección "Casos" hasta que el usuario
+   * confirme su correo vía enlace (magic link / OTP).
+   */
+  protectedGallery: {
+    enabled: true,
+
+    /**
+     * Supabase (Auth + DB).
+     * - url: Project URL (https://xxxx.supabase.co)
+     * - anonKey: Project API key (anon/public)
+     */
+    supabase: {
+      url: "https://jzmkjbucckxdjlpjckfn.supabase.co",
+      anonKey: "sb_publishable_W6fZ6J8jzFP2tffYXfqgXw_AW3Rar1L",
+      /**
+       * Tabla opcional para guardar leads (email + consentimiento).
+       * Recomendado: crear tabla "leads" y permitir INSERT público con RLS.
+       */
+      leadsTable: "leads",
+    },
+  },
 };

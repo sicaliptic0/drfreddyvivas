@@ -122,57 +122,58 @@
             </p>
           </header>
 
-          <div class="cases__filters" role="tablist" aria-label="Filtrar por tratamiento">
-            <button type="button" class="chip chip--active" data-filter="all" role="tab" aria-selected="true">
-              <span data-i18n="filter_all">Todos</span>
-            </button>
-            <button type="button" class="chip" data-filter="toxina" role="tab" aria-selected="false">
-              <span data-i18n="filter_toxina">Toxina botulínica</span>
-            </button>
-            <button type="button" class="chip" data-filter="rellenos" role="tab" aria-selected="false">
-              <span data-i18n="filter_rellenos">Rellenos</span>
-            </button>
-            <button type="button" class="chip" data-filter="bio" role="tab" aria-selected="false">
-              <span data-i18n="filter_bio">Bioestimuladores</span>
-            </button>
-          </div>
+          <div class="cases__protected-content" data-protected-content>
+            <div class="cases__filters" role="tablist" aria-label="Filtrar por tratamiento">
+              <button type="button" class="chip chip--active" data-filter="all" role="tab" aria-selected="true">
+                <span data-i18n="filter_all">Todos</span>
+              </button>
+              <button type="button" class="chip" data-filter="toxina" role="tab" aria-selected="false">
+                <span data-i18n="filter_toxina">Toxina botulínica</span>
+              </button>
+              <button type="button" class="chip" data-filter="rellenos" role="tab" aria-selected="false">
+                <span data-i18n="filter_rellenos">Rellenos</span>
+              </button>
+              <button type="button" class="chip" data-filter="bio" role="tab" aria-selected="false">
+                <span data-i18n="filter_bio">Bioestimuladores</span>
+              </button>
+            </div>
 
-          <div class="cases__grid" data-cases-grid>
-            <!-- Toxina -->
-            <article class="case-card" data-category="toxina">
-              <div
-                class="ba"
-                role="img"
-                aria-label="Comparación antes y después"
-                data-ba
-                style="--ba-pos: 50%"
-              >
-                <div class="ba__layer ba__layer--after" data-ba-after></div>
-                <div class="ba__layer ba__layer--before" data-ba-before></div>
-                <div class="ba__handle" data-ba-handle>
-                  <span class="ba__handle-knob" aria-hidden="true"></span>
+            <div class="cases__grid" data-cases-grid>
+              <!-- Toxina -->
+              <article class="case-card" data-category="toxina">
+                <div
+                  class="ba"
+                  role="img"
+                  aria-label="Comparación antes y después"
+                  data-ba
+                  style="--ba-pos: 50%"
+                >
+                  <div class="ba__layer ba__layer--after" data-ba-after></div>
+                  <div class="ba__layer ba__layer--before" data-ba-before></div>
+                  <div class="ba__handle" data-ba-handle>
+                    <span class="ba__handle-knob" aria-hidden="true"></span>
+                  </div>
+                  <span class="ba__label ba__label--before" data-i18n="ba_before">Antes</span>
+                  <span class="ba__label ba__label--after" data-i18n="ba_after">Después</span>
                 </div>
-                <span class="ba__label ba__label--before" data-i18n="ba_before">Antes</span>
-                <span class="ba__label ba__label--after" data-i18n="ba_after">Después</span>
-              </div>
-              <div class="case-card__meta">
-                <h3 class="case-card__title" data-i18n="case1_title">Zona superior del tercio facial</h3>
-                <dl class="case-card__dl">
-                  <div>
-                    <dt data-i18n="meta_zone">Zona</dt>
-                    <dd data-i18n="case1_zone">Frente y entrecejo</dd>
-                  </div>
-                  <div>
-                    <dt data-i18n="meta_technique">Técnica</dt>
-                    <dd data-i18n="case1_tech">Toxina botulínica</dd>
-                  </div>
-                  <div>
-                    <dt data-i18n="meta_time">Tiempo</dt>
-                    <dd data-i18n="case1_time">14 días post-tratamiento</dd>
-                  </div>
-                </dl>
-              </div>
-            </article>
+                <div class="case-card__meta">
+                  <h3 class="case-card__title" data-i18n="case1_title">Zona superior del tercio facial</h3>
+                  <dl class="case-card__dl">
+                    <div>
+                      <dt data-i18n="meta_zone">Zona</dt>
+                      <dd data-i18n="case1_zone">Frente y entrecejo</dd>
+                    </div>
+                    <div>
+                      <dt data-i18n="meta_technique">Técnica</dt>
+                      <dd data-i18n="case1_tech">Toxina botulínica</dd>
+                    </div>
+                    <div>
+                      <dt data-i18n="meta_time">Tiempo</dt>
+                      <dd data-i18n="case1_time">14 días post-tratamiento</dd>
+                    </div>
+                  </dl>
+                </div>
+              </article>
 
             <article class="case-card" data-category="toxina">
               <div class="ba" role="img" aria-label="Comparación antes y después" data-ba style="--ba-pos: 50%">
@@ -324,6 +325,41 @@
               </div>
             </article>
           </div>
+          </div>
+
+          <div class="protected-overlay" data-protected-overlay hidden>
+            <div class="protected-overlay__panel" role="region" aria-label="Galería protegida">
+              <p class="protected-overlay__title" data-i18n="protected_title">
+                🔒 Galería protegida — Estas fotos son de pacientes reales. Por su privacidad y dado que incluye imágenes clínicas, ingresa tu correo para acceder.
+              </p>
+              <form class="protected-form" data-protected-form>
+                <label class="visually-hidden" for="protected-email" data-i18n="protected_email_label">Correo</label>
+                <input
+                  id="protected-email"
+                  class="protected-form__input"
+                  type="email"
+                  name="email"
+                  autocomplete="email"
+                  inputmode="email"
+                  placeholder="tu@correo.com"
+                  required
+                />
+                <button type="submit" class="btn btn--primary protected-form__btn" data-i18n="protected_cta">
+                  Enviar enlace de acceso
+                </button>
+                <label class="protected-form__consent">
+                  <input type="checkbox" name="marketing_consent" />
+                  <span data-i18n="protected_consent">
+                    Acepto recibir información y promociones (puedo darme de baja cuando quiera).
+                  </span>
+                </label>
+                <p class="protected-form__hint" data-protected-hint data-i18n="protected_hint">
+                  Te enviaremos un enlace para confirmar tu correo y desbloquear esta galería.
+                </p>
+              </form>
+              <p class="protected-form__status" data-protected-status aria-live="polite"></p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -402,6 +438,7 @@
       </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="config.js"></script>
     <script src="app.js"></script>
   </body>
