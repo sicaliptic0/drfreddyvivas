@@ -3,7 +3,7 @@
  * Ejemplo México: 5215512345678
  */
 window.SITE_CONFIG = {
-  whatsappPhone: "REPLACE_PHONE",
+  whatsappPhone: "19296925721",
 
   /**
    * Cambia este valor cuando sustituyas imágenes con el mismo nombre de archivo

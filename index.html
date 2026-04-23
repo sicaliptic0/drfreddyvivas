@@ -37,6 +37,7 @@
           <ul id="nav-menu" class="nav__list">
             <li><a href="#valor" data-i18n="nav_value">Enfoque</a></li>
             <li><a href="#casos" data-i18n="nav_cases">Casos</a></li>
+            <li><a href="#bio" data-i18n="nav_bio">Dr. Vivas</a></li>
             <li><a href="#procedimientos" data-i18n="nav_procedures">Procedimientos</a></li>
             <li><a href="#testimonios" data-i18n="nav_testimonials">Testimonios</a></li>
             <li><a href="#contacto" data-i18n="nav_contact">Contacto</a></li>
@@ -365,6 +366,111 @@
         </div>
       </section>
 
+      <section id="bio" class="bio section">
+        <div class="section__inner">
+          <div class="bio__layout">
+
+            <div class="bio__photo-col">
+              <div class="bio__photo-frame">
+                <img
+                  class="bio__photo"
+                  src="images/freddy-profile.jpg"
+                  alt="Dr. Freddy Vivas — Médico Cirujano, especialista en medicina estética"
+                  width="420"
+                  height="600"
+                  onerror="this.closest('.bio__photo-frame').classList.add('bio__photo-frame--placeholder')"
+                />
+              </div>
+              <div class="bio__photo-caption">
+                <p class="bio__photo-name">Dr. Freddy Vivas</p>
+                <p class="bio__photo-sub" data-i18n="bio_photo_sub">Médico Cirujano · Medicina Estética</p>
+              </div>
+            </div>
+
+            <div class="bio__content">
+              <p class="bio__kicker" data-i18n="bio_kicker">Formación clínica</p>
+              <p class="bio__lead" data-i18n="bio_lead">
+                Médico Cirujano Venezolano con formación internacional en medicina estética, dermatología clínica y técnicas de armonización facial.
+              </p>
+
+              <div class="bio__groups">
+
+                <div class="bio__group bio__group--featured" data-bio-item>
+                  <p class="bio__group-label" data-i18n="bio_g1_label">Formación médica</p>
+                  <div class="bio__group-items">
+                    <div class="bio__gitem">
+                      <p class="bio__gitem-title" data-i18n="bio_deg_title">Médico Cirujano</p>
+                      <p class="bio__gitem-meta">Universidad Nacional Experimental Rómulo Gallegos · Venezuela · 2020</p>
+                      <p class="bio__gitem-honor" data-i18n="bio_deg_honor">Mención Honorífica Cum Laude · 8.71 / 10</p>
+                    </div>
+                    <div class="bio__gitem">
+                      <p class="bio__gitem-title" data-i18n="bio_residency_title">Residencia Asistencial Programada</p>
+                      <p class="bio__gitem-meta">Servicio de Cirugía General · Hospital Militar Cap. (Av.) Guillermo Hernández Jacobsen · San Cristóbal, Venezuela · 2022–2024</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bio__accordions" data-bio-item>
+
+                  <div class="bio__acc">
+                    <button class="bio__acc-btn" aria-expanded="false" data-accordion-btn>
+                      <span class="bio__acc-label" data-i18n="bio_g2_label">Especialización estética</span>
+                      <svg class="bio__acc-icon" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                        <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </button>
+                    <div class="bio__acc-body" data-accordion-body>
+                      <div class="bio__acc-items">
+                        <div class="bio__gitem">
+                          <p class="bio__gitem-title" data-i18n="bio_dip2_title">Diplomado de Estética Facial y Corporal</p>
+                          <p class="bio__gitem-meta">Universidad de los Andes · Venezuela · 2023 · 400 h</p>
+                        </div>
+                        <div class="bio__gitem">
+                          <p class="bio__gitem-title" data-i18n="bio_dip1_title">Diplomado Internacional en Armonización Orofacial</p>
+                          <p class="bio__gitem-meta">IPFA / UNERG · Cúcuta, Colombia · 2023 · 120 h</p>
+                        </div>
+                        <div class="bio__gitem">
+                          <p class="bio__gitem-title" data-i18n="bio_dip3_title">Diplomado en Ecografía General</p>
+                          <p class="bio__gitem-meta">Corposalud Táchira · Venezuela · 2021 · 410 h</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="bio__acc">
+                    <button class="bio__acc-btn" aria-expanded="false" data-accordion-btn>
+                      <span class="bio__acc-label" data-i18n="bio_g3_label">Proyección internacional</span>
+                      <svg class="bio__acc-icon" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                        <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </button>
+                    <div class="bio__acc-body" data-accordion-body>
+                      <div class="bio__acc-items">
+                        <div class="bio__gitem">
+                          <p class="bio__gitem-title" data-i18n="bio_master_title">Grand Master en Dermatología Clínica</p>
+                          <p class="bio__gitem-meta">TECH Global University · Andorra, Europa · 2023–2025</p>
+                        </div>
+                        <div class="bio__gitem">
+                          <p class="bio__gitem-title" data-i18n="bio_license_title">Licencia de Estética — Estado de Nueva York</p>
+                          <p class="bio__gitem-meta">New York Department of State · 2025</p>
+                        </div>
+                        <div class="bio__gitem">
+                          <p class="bio__gitem-title" data-i18n="bio_dip4_title">Medicina Fotónica — Endolaser Facial y Corporal</p>
+                          <p class="bio__gitem-meta">Florida Global University · Academia Iberoamericana de Láser Médico · New York · 2024</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       <section id="procedimientos" class="procedures section">
         <div class="section__inner">
           <header class="section__header">
@@ -373,13 +479,55 @@
               Tratamientos frecuentes en consulta. La indicación es siempre personalizada.
             </p>
           </header>
-          <ul class="procedures__list">
-            <li data-i18n="proc_1">Toxina botulínica para líneas de expresión</li>
-            <li data-i18n="proc_2">Rellenos con ácido hialurónico</li>
-            <li data-i18n="proc_3">Bioestimuladores de colágeno</li>
-            <li data-i18n="proc_4">Armonización facial conservadora</li>
-            <li data-i18n="proc_5">Plan combinado según evaluación médica</li>
-          </ul>
+          <div class="proc__groups">
+
+            <div class="proc__group">
+              <span class="proc__group-index" aria-hidden="true">01</span>
+              <h3 class="proc__group-title" data-i18n="proc_g1_title">Neuromoduladores</h3>
+              <p class="proc__group-sub" data-i18n="proc_g1_sub">Toxina botulínica</p>
+              <ul class="proc__items">
+                <li data-i18n="proc_1">Líneas de expresión — frente y entrecejo</li>
+                <li data-i18n="proc_1b">Patitas de gallo</li>
+                <li data-i18n="proc_1c">Armonización del tercio superior</li>
+              </ul>
+            </div>
+
+            <div class="proc__group">
+              <span class="proc__group-index" aria-hidden="true">02</span>
+              <h3 class="proc__group-title" data-i18n="proc_g2_title">Rellenos Dérmicos</h3>
+              <p class="proc__group-sub" data-i18n="proc_g2_sub">Ácido hialurónico</p>
+              <ul class="proc__items">
+                <li data-i18n="proc_2a">Labios y contorno</li>
+                <li data-i18n="proc_2b">Pómulos, ojeras y jawline</li>
+                <li data-i18n="proc_2c">Armonización orofacial integral</li>
+              </ul>
+            </div>
+
+            <div class="proc__group">
+              <span class="proc__group-index" aria-hidden="true">03</span>
+              <h3 class="proc__group-title" data-i18n="proc_g3_title">Bioestimuladores</h3>
+              <p class="proc__group-sub" data-i18n="proc_g3_sub">Inductores de colágeno</p>
+              <ul class="proc__items">
+                <li data-i18n="proc_3a">Bioestimuladores de colágeno</li>
+                <li data-i18n="proc_3b">Mejillas y línea mandibular</li>
+                <li data-i18n="proc_3c">Plan combinado según evaluación</li>
+              </ul>
+            </div>
+
+            <div class="proc__group">
+              <span class="proc__group-index" aria-hidden="true">04</span>
+              <h3 class="proc__group-title" data-i18n="proc_g4_title">Estética Regenerativa & Láser</h3>
+              <p class="proc__group-sub" data-i18n="proc_g4_sub">Tecnología avanzada</p>
+              <ul class="proc__items">
+                <li data-i18n="proc_4a">Endolifting facial y corporal</li>
+                <li data-i18n="proc_4b">Rejuvenecimiento con láser CO₂</li>
+                <li data-i18n="proc_4c">Dermapen — microagujas</li>
+                <li data-i18n="proc_4d">Peeling químico (superficial y profundo)</li>
+                <li data-i18n="proc_4e">Limpieza facial superficial y profunda</li>
+              </ul>
+            </div>
+
+          </div>
         </div>
       </section>
 

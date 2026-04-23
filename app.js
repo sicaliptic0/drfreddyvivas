@@ -17,6 +17,7 @@
     es: {
       skip: "Saltar al contenido",
       nav_menu: "Menú",
+      nav_bio: "Dr. Vivas",
       nav_value: "Enfoque",
       nav_cases: "Casos",
       nav_procedures: "Procedimientos",
@@ -38,6 +39,24 @@
       value_3_title: "Acompañamiento claro",
       value_3_text:
         "Explicación honesta de opciones, tiempos de evolución y qué esperar en cada etapa.",
+      bio_kicker: "Formación clínica",
+      bio_photo_sub: "Médico Cirujano · Medicina Estética",
+      bio_lead: "Formado en Venezuela con Mención Cum Laude, completó su residencia en cirugía general antes de especializarse en medicina estética. Un camino que lo llevó desde los Andes hasta Nueva York, con formación en dermatología clínica, técnicas de láser médico y armonización facial — siempre con un criterio estético conservador y resultados que respetan la naturalidad.",
+      bio_g1_label: "Formación médica",
+      bio_g2_label: "Especialización estética",
+      bio_g3_label: "Proyección internacional",
+      bio_tag_degree: "Título médico",
+      bio_deg_title: "Médico Cirujano (M.D.)",
+      bio_deg_honor: "Mención Honorífica Cum Laude · 8.71 / 10",
+      bio_tag_master: "Maestría",
+      bio_master_title: "Grand Master en Dermatología Clínica",
+      bio_tag_license: "Licencia internacional",
+      bio_license_title: "Licencia de Estética — Estado de Nueva York",
+      bio_dip1_title: "Diplomado Internacional en Armonización Orofacial Integral",
+      bio_dip2_title: "Diplomado de Estética Facial y Corporal",
+      bio_residency_title: "Residencia Asistencial Programada",
+      bio_dip3_title: "Diplomado en Ecografía General",
+      bio_dip4_title: "Medicina Fotónica — Endolaser Facial y Corporal",
       cases_title: "Antes y después",
       cases_subtitle:
         "Selección de casos. Arrastra el divisor o desliza en el móvil para comparar.",
@@ -77,11 +96,28 @@
       case5_time: "8 semanas (serie según plan)",
       proc_title: "Procedimientos",
       proc_subtitle: "Tratamientos frecuentes en consulta. La indicación es siempre personalizada.",
-      proc_1: "Toxina botulínica para líneas de expresión",
-      proc_2: "Rellenos con ácido hialurónico",
-      proc_3: "Bioestimuladores de colágeno",
-      proc_4: "Armonización facial conservadora",
-      proc_5: "Plan combinado según evaluación médica",
+      proc_g1_title: "Neuromoduladores",
+      proc_g1_sub: "Toxina botulínica",
+      proc_1: "Líneas de expresión — frente y entrecejo",
+      proc_1b: "Patitas de gallo",
+      proc_1c: "Armonización del tercio superior",
+      proc_g2_title: "Rellenos Dérmicos",
+      proc_g2_sub: "Ácido hialurónico",
+      proc_2a: "Labios y contorno",
+      proc_2b: "Pómulos, ojeras y jawline",
+      proc_2c: "Armonización orofacial integral",
+      proc_g3_title: "Bioestimuladores",
+      proc_g3_sub: "Inductores de colágeno",
+      proc_3a: "Bioestimuladores de colágeno",
+      proc_3b: "Mejillas y línea mandibular",
+      proc_3c: "Plan combinado según evaluación",
+      proc_g4_title: "Estética Regenerativa & Láser",
+      proc_g4_sub: "Tecnología avanzada",
+      proc_4a: "Endolifting facial y corporal",
+      proc_4b: "Rejuvenecimiento con láser CO₂",
+      proc_4c: "Dermapen — microagujas",
+      proc_4d: "Peeling químico (superficial y profundo)",
+      proc_4e: "Limpieza facial superficial y profunda",
       test_title: "Testimonios",
       test_subtitle: "Experiencias compartidas por pacientes.",
       test_1:
@@ -114,6 +150,7 @@
     en: {
       skip: "Skip to content",
       nav_menu: "Menu",
+      nav_bio: "Dr. Vivas",
       nav_value: "Approach",
       nav_cases: "Cases",
       nav_procedures: "Procedures",
@@ -135,6 +172,24 @@
       value_3_title: "Clear guidance",
       value_3_text:
         "Honest explanations of options, healing timelines, and what to expect at each stage.",
+      bio_kicker: "Clinical background",
+      bio_photo_sub: "Medical Doctor · Aesthetic Medicine",
+      bio_lead: "Trained in Venezuela with Cum Laude distinction, he completed a surgical residency before specializing in aesthetic medicine — a path that took him from the Andes to New York, with training in clinical dermatology, medical laser techniques, and facial harmonization, guided throughout by a conservative aesthetic approach and a commitment to natural results.",
+      bio_g1_label: "Medical training",
+      bio_g2_label: "Aesthetic specialization",
+      bio_g3_label: "International credentials",
+      bio_tag_degree: "Medical degree",
+      bio_deg_title: "Doctor in Medicine (M.D.)",
+      bio_deg_honor: "Cum Laude Honorable Mention · 8.71 / 10",
+      bio_tag_master: "Master's degree",
+      bio_master_title: "Grand Master in Clinical Dermatology",
+      bio_tag_license: "International license",
+      bio_license_title: "Esthetics License — New York State",
+      bio_dip1_title: "International Diploma in Integral Orofacial Harmonization",
+      bio_dip2_title: "Diploma in Facial and Body Aesthetics",
+      bio_residency_title: "Programmed Clinical Residency",
+      bio_dip3_title: "Diploma in General Ultrasound",
+      bio_dip4_title: "Photonic Medicine — Facial and Body Endolaser",
       cases_title: "Before and after",
       cases_subtitle:
         "Selected cases. Drag the divider or swipe on your phone to compare.",
@@ -173,12 +228,29 @@
       case5_tech: "Collagen biostimulator",
       case5_time: "8 weeks (series per plan)",
       proc_title: "Procedures",
-      proc_subtitle: "Common in-office treatments—always tailored after medical assessment.",
-      proc_1: "Neuromodulators for expression lines",
-      proc_2: "Hyaluronic acid fillers",
-      proc_3: "Collagen biostimulators",
-      proc_4: "Conservative facial harmonization",
-      proc_5: "Combined plan based on medical evaluation",
+      proc_subtitle: "Common in-office treatments — always tailored after medical assessment.",
+      proc_g1_title: "Neuromodulators",
+      proc_g1_sub: "Botulinum toxin",
+      proc_1: "Expression lines — forehead & glabella",
+      proc_1b: "Crow's feet",
+      proc_1c: "Upper third harmonization",
+      proc_g2_title: "Dermal Fillers",
+      proc_g2_sub: "Hyaluronic acid",
+      proc_2a: "Lips and lip border",
+      proc_2b: "Cheeks, under-eyes and jawline",
+      proc_2c: "Integral orofacial harmonization",
+      proc_g3_title: "Biostimulators",
+      proc_g3_sub: "Collagen inducers",
+      proc_3a: "Collagen biostimulators",
+      proc_3b: "Cheeks and jawline",
+      proc_3c: "Combined plan per medical assessment",
+      proc_g4_title: "Regenerative Aesthetics & Lasers",
+      proc_g4_sub: "Advanced technology",
+      proc_4a: "Facial and body endolifting",
+      proc_4b: "CO₂ laser skin rejuvenation",
+      proc_4c: "Dermapen — microneedling",
+      proc_4d: "Chemical peel (superficial & deep)",
+      proc_4e: "Facial cleansing (superficial & deep)",
       test_title: "Testimonials",
       test_subtitle: "Shared experiences from patients.",
       test_1:
@@ -552,6 +624,44 @@
     });
   }
 
+  function initBioAccordions() {
+    document.querySelectorAll("[data-accordion-btn]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        const expanded = btn.getAttribute("aria-expanded") === "true";
+        const acc = btn.closest(".bio__acc");
+        const body = acc.querySelector("[data-accordion-body]");
+        btn.setAttribute("aria-expanded", expanded ? "false" : "true");
+        body.classList.toggle("is-open", !expanded);
+        acc.classList.toggle("is-open", !expanded);
+      });
+    });
+  }
+
+  function initBioScroll() {
+    const items = document.querySelectorAll("[data-bio-item]");
+    if (!items.length) return;
+
+    const observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            const index = Array.from(items).indexOf(el);
+            setTimeout(function () {
+              el.classList.add("is-visible");
+            }, index * 120);
+            observer.unobserve(el);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    items.forEach(function (item) {
+      observer.observe(item);
+    });
+  }
+
   initLangToggle();
   initWhatsapp();
   initHeroImage();
@@ -559,6 +669,8 @@
   initBeforeAfterSliders();
   initCaseFilters();
   initProtectedGallery();
+  initBioAccordions();
+  initBioScroll();
   initNav();
   initHeaderScroll();
   initYear();
