@@ -1409,3 +1409,69 @@ a:hover {
   color: rgba(156, 152, 147, 0.6);
   letter-spacing: 0.06em;
 }
+
+/* WhatsApp flotante */
+.whatsapp-fab {
+  position: fixed;
+  z-index: 95;
+  right: max(1rem, env(safe-area-inset-right, 0px));
+  bottom: max(1rem, env(safe-area-inset-bottom, 0px));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.35rem;
+  height: 3.35rem;
+  border-radius: 50%;
+  color: #fff;
+  text-decoration: none;
+  background: linear-gradient(155deg, #1fa855 0%, #128c7e 55%, #075e54 100%);
+  box-shadow:
+    0 0 0 1px rgba(201, 169, 98, 0.28),
+    0 6px 28px rgba(0, 0, 0, 0.45),
+    0 0 32px var(--gold-glow);
+  transition:
+    transform 0.28s var(--ease),
+    box-shadow 0.28s var(--ease);
+}
+
+.whatsapp-fab:hover {
+  text-decoration: none;
+  transform: scale(1.06);
+  box-shadow:
+    0 0 0 1px rgba(201, 169, 98, 0.45),
+    0 10px 36px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(201, 169, 98, 0.2);
+}
+
+.whatsapp-fab:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.whatsapp-fab__icon {
+  display: block;
+  flex-shrink: 0;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.25));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-fab,
+  .whatsapp-fab:hover {
+    transition: none;
+    transform: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .whatsapp-fab {
+    right: max(1.5rem, env(safe-area-inset-right, 0px));
+    bottom: max(1.5rem, env(safe-area-inset-bottom, 0px));
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  .whatsapp-fab__icon {
+    width: 28px;
+    height: 28px;
+  }
+}
