@@ -9,7 +9,7 @@ window.SITE_CONFIG = {
    * Cambia este valor cuando sustituyas imágenes con el mismo nombre de archivo
    * para que el navegador vuelva a descargarlas (?v=… en la URL).
    */
-  mediaVersion: "20260416",
+  mediaVersion: "20260501b",
 
   /** Imagen del hero (opcional). Deja null para usar el fondo por defecto. */
   heroImage: "images/hero.JPG",
@@ -19,12 +19,10 @@ window.SITE_CONFIG = {
    * null = placeholder elegante hasta que subas fotos.
    */
   caseImages: [
-    { before: null, after: null },
-    { before: null, after: null },
-    { before: "images/caso1antes.png", after: "images/caso1despues.png" },
-    { before: "images/caso2antes.png", after: "images/caso2despues.png" },
+    { before: "images/caso6antes.jpg", after: "images/caso6despues.jpg" },
     { before: "images/caso3antes.jpg", after: "images/caso3despues.jpg" },
-    { before: null, after: null },
+    { before: "images/caso4antes.jpg", after: "images/caso4despues.jpg" },
+    { before: "images/caso5antes.jpg", after: "images/caso5despues.jpg" },
   ],
 
   /**
