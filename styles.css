@@ -1410,7 +1410,25 @@ a:hover {
   letter-spacing: 0.06em;
 }
 
-/* WhatsApp flotante */
+/* WhatsApp flotante — verde neón + pulso elegante */
+@keyframes whatsapp-fab-pulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 1px rgba(201, 169, 98, 0.22),
+      0 0 18px rgba(57, 255, 160, 0.35),
+      0 0 36px rgba(0, 255, 180, 0.12),
+      0 6px 26px rgba(0, 0, 0, 0.48);
+  }
+  50% {
+    box-shadow:
+      0 0 0 2px rgba(201, 169, 98, 0.32),
+      0 0 28px rgba(100, 255, 200, 0.55),
+      0 0 48px rgba(57, 255, 170, 0.28),
+      0 8px 30px rgba(0, 0, 0, 0.52);
+  }
+}
+
 .whatsapp-fab {
   position: fixed;
   z-index: 95;
@@ -1424,23 +1442,20 @@ a:hover {
   border-radius: 50%;
   color: #fff;
   text-decoration: none;
-  background: linear-gradient(155deg, #1fa855 0%, #128c7e 55%, #075e54 100%);
-  box-shadow:
-    0 0 0 1px rgba(201, 169, 98, 0.28),
-    0 6px 28px rgba(0, 0, 0, 0.45),
-    0 0 32px var(--gold-glow);
-  transition:
-    transform 0.28s var(--ease),
-    box-shadow 0.28s var(--ease);
+  background: linear-gradient(158deg, #2bff8c 0%, #12d87a 38%, #0a9f6a 72%, #067a52 100%);
+  animation: whatsapp-fab-pulse 2.6s ease-in-out infinite;
+  transition: transform 0.28s var(--ease);
 }
 
 .whatsapp-fab:hover {
   text-decoration: none;
-  transform: scale(1.06);
+  animation: none;
+  transform: scale(1.08);
   box-shadow:
-    0 0 0 1px rgba(201, 169, 98, 0.45),
-    0 10px 36px rgba(0, 0, 0, 0.5),
-    0 0 40px rgba(201, 169, 98, 0.2);
+    0 0 0 2px rgba(201, 169, 98, 0.38),
+    0 0 32px rgba(120, 255, 210, 0.65),
+    0 0 56px rgba(57, 255, 170, 0.35),
+    0 12px 40px rgba(0, 0, 0, 0.55);
 }
 
 .whatsapp-fab:focus-visible {
@@ -1451,14 +1466,24 @@ a:hover {
 .whatsapp-fab__icon {
   display: block;
   flex-shrink: 0;
-  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.25));
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.35));
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .whatsapp-fab,
+  .whatsapp-fab {
+    animation: none;
+    box-shadow:
+      0 0 0 1px rgba(201, 169, 98, 0.28),
+      0 0 22px rgba(57, 255, 160, 0.4),
+      0 6px 26px rgba(0, 0, 0, 0.48);
+  }
+
   .whatsapp-fab:hover {
-    transition: none;
     transform: none;
+    box-shadow:
+      0 0 0 2px rgba(201, 169, 98, 0.35),
+      0 0 28px rgba(100, 255, 200, 0.5),
+      0 8px 30px rgba(0, 0, 0, 0.52);
   }
 }
 
