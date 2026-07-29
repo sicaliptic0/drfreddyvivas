@@ -978,7 +978,11 @@ a:hover {
   visibility: hidden;
   pointer-events: none;
   transform: translateY(-16px) scale(0.985);
-  z-index: 1;
+  z-index: 3;
+}
+
+.proc__group[hidden] {
+  display: none !important;
 }
 
 .proc__group::before {
@@ -1124,15 +1128,16 @@ a:hover {
 }
 
 .proc__play-icon {
-  display: none;
+  display: none !important;
 }
 
 .proc__play.is-playing .proc__play-icon--pause {
-  display: block;
+  display: block !important;
 }
 
 .proc__play:not(.is-playing) .proc__play-icon--play {
-  display: block;
+  display: block !important;
+  margin-left: 1px;
 }
 
 .proc__nav {
