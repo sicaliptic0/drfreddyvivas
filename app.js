@@ -130,6 +130,8 @@
       proc_g5_sub: "GLP1 + GIP",
       proc_5a: "Control de peso",
       proc_5b: "Inyecciones subcutáneas semanales",
+      proc_play: "Reproducir automáticamente",
+      proc_pause: "Pausar reproducción automática",
       test_title: "Testimonios",
       test_subtitle: "Experiencias compartidas por pacientes.",
       test_1:
@@ -275,6 +277,8 @@
       proc_g5_sub: "GLP1 + GIP",
       proc_5a: "Weight management",
       proc_5b: "Weekly subcutaneous injections",
+      proc_play: "Play automatic slideshow",
+      proc_pause: "Pause automatic slideshow",
       test_title: "Testimonials",
       test_subtitle: "Shared experiences from patients.",
       test_1:
@@ -694,10 +698,13 @@
     const slides = Array.prototype.slice.call(root.querySelectorAll("[data-proc-slide]"));
     const prevBtn = root.querySelector("[data-proc-prev]");
     const nextBtn = root.querySelector("[data-proc-next]");
+    const toggleBtn = root.querySelector("[data-proc-toggle]");
+    const timerEl = root.querySelector("[data-proc-timer]");
+    const timerRing = root.querySelector("[data-proc-timer-ring]");
     if (slides.length < 2) return;
 
-    const FADE_MS = 450;
-    const HOLD_MS = 1000;
+    const FADE_MS = 900;
+    const HOLD_MS = 2000;
     const prefersReduced =
       window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -713,6 +720,11 @@
     let timer = null;
     let transitioning = false;
 
+    function t(key, fallback) {
+      const pack = STRINGS[currentLang] || STRINGS.es;
+      return (pack && pack[key]) || (STRINGS.es && STRINGS.es[key]) || fallback || "";
+    }
+
     function clearTimer() {
       if (timer) {
         clearTimeout(timer);
@@ -720,12 +732,55 @@
       }
     }
 
+    function restartCountdown() {
+      if (!timerEl) return;
+      timerEl.classList.remove("is-running");
+      if (timerRing) {
+        void timerRing.offsetWidth;
+      }
+      if (autoplay && !prefersReduced) {
+        // Force animation restart
+        void timerEl.offsetWidth;
+        timerEl.classList.add("is-running");
+      }
+    }
+
+    function stopCountdown() {
+      if (!timerEl) return;
+      timerEl.classList.remove("is-running");
+    }
+
+    function updateToggleUi() {
+      if (!toggleBtn) return;
+      toggleBtn.classList.toggle("is-playing", autoplay);
+      toggleBtn.setAttribute("aria-pressed", autoplay ? "true" : "false");
+      toggleBtn.setAttribute(
+        "aria-label",
+        autoplay ? t("proc_pause", "Pausar reproducción automática") : t("proc_play", "Reproducir automáticamente")
+      );
+    }
+
     function scheduleNext() {
       clearTimer();
-      if (!autoplay) return;
+      if (!autoplay) {
+        stopCountdown();
+        return;
+      }
+      restartCountdown();
       timer = setTimeout(function () {
         goTo((index + 1) % slides.length, false);
       }, HOLD_MS);
+    }
+
+    function setAutoplay(on) {
+      autoplay = !!on && !prefersReduced;
+      updateToggleUi();
+      if (autoplay) {
+        scheduleNext();
+      } else {
+        clearTimer();
+        stopCountdown();
+      }
     }
 
     function goTo(nextIndex, stopAuto) {
@@ -734,6 +789,8 @@
       if (stopAuto) {
         autoplay = false;
         clearTimer();
+        stopCountdown();
+        updateToggleUi();
       }
 
       const current = slides[index];
@@ -771,7 +828,13 @@
         goTo((index + 1) % slides.length, true);
       });
     }
+    if (toggleBtn) {
+      toggleBtn.addEventListener("click", function () {
+        setAutoplay(!autoplay);
+      });
+    }
 
+    updateToggleUi();
     scheduleNext();
   }
 
