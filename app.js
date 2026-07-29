@@ -687,6 +687,94 @@
     });
   }
 
+  function initProceduresCarousel() {
+    const root = document.querySelector("[data-proc-carousel]");
+    if (!root) return;
+
+    const slides = Array.prototype.slice.call(root.querySelectorAll("[data-proc-slide]"));
+    const prevBtn = root.querySelector("[data-proc-prev]");
+    const nextBtn = root.querySelector("[data-proc-next]");
+    if (slides.length < 2) return;
+
+    const FADE_MS = 450;
+    const HOLD_MS = 1000;
+    const prefersReduced =
+      window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    let index = Math.max(
+      0,
+      slides.findIndex(function (s) {
+        return s.classList.contains("is-active");
+      })
+    );
+    if (index < 0) index = 0;
+
+    let autoplay = !prefersReduced;
+    let timer = null;
+    let transitioning = false;
+
+    function clearTimer() {
+      if (timer) {
+        clearTimeout(timer);
+        timer = null;
+      }
+    }
+
+    function scheduleNext() {
+      clearTimer();
+      if (!autoplay) return;
+      timer = setTimeout(function () {
+        goTo((index + 1) % slides.length, false);
+      }, HOLD_MS);
+    }
+
+    function goTo(nextIndex, stopAuto) {
+      if (transitioning || nextIndex === index) return;
+
+      if (stopAuto) {
+        autoplay = false;
+        clearTimer();
+      }
+
+      const current = slides[index];
+      const next = slides[nextIndex];
+      transitioning = true;
+
+      next.hidden = false;
+      next.classList.add("is-entering");
+      void next.offsetWidth;
+      next.classList.remove("is-entering");
+      next.classList.add("is-active");
+
+      current.classList.remove("is-active");
+      current.classList.add("is-leaving");
+
+      window.setTimeout(
+        function () {
+          current.classList.remove("is-leaving");
+          current.hidden = true;
+          index = nextIndex;
+          transitioning = false;
+          if (autoplay) scheduleNext();
+        },
+        prefersReduced ? 0 : FADE_MS
+      );
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener("click", function () {
+        goTo((index - 1 + slides.length) % slides.length, true);
+      });
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener("click", function () {
+        goTo((index + 1) % slides.length, true);
+      });
+    }
+
+    scheduleNext();
+  }
+
   initLangToggle();
   initWhatsapp();
   initHeroImage();
@@ -696,6 +784,7 @@
   initProtectedGallery();
   initBioAccordions();
   initBioScroll();
+  initProceduresCarousel();
   initNav();
   initHeaderScroll();
   initYear();
