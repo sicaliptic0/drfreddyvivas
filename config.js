@@ -9,7 +9,7 @@ window.SITE_CONFIG = {
    * Cambia este valor cuando sustituyas imágenes con el mismo nombre de archivo
    * para que el navegador vuelva a descargarlas (?v=… en la URL).
    */
-  mediaVersion: "20260503",
+  mediaVersion: "20260504",
 
   /** Imagen del hero (opcional). Deja null para usar el fondo por defecto. */
   heroImage: "images/hero.png",
@@ -26,6 +26,7 @@ window.SITE_CONFIG = {
     { before: "images/caso4antes.jpg", after: "images/caso4despues.jpg" },
     { before: "images/caso5antes.jpg", after: "images/caso5despues.jpg" },
     { before: "images/caso7antes.jpg", after: "images/caso7despues.jpg" },
+    { before: "images/caso8antes.png", after: "images/caso8despues.png" },
   ],
 
   /**

@@ -907,13 +907,20 @@ a:hover {
 }
 
 .proc__groups {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-wrap: nowrap;
   gap: 1.5px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
   background: var(--border);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  overflow: hidden;
+  scrollbar-width: thin;
+}
+
+.proc__groups::-webkit-scrollbar {
+  height: 4px;
 }
 
 .proc__group {
@@ -921,6 +928,9 @@ a:hover {
   padding: 2rem 2rem 2.25rem;
   position: relative;
   transition: background 0.25s ease;
+  flex: 0 0 min(78vw, 280px);
+  scroll-snap-align: start;
+  min-height: 100%;
 }
 
 .proc__group:hover {
@@ -990,9 +1000,9 @@ a:hover {
   font-size: 0.7rem;
 }
 
-@media (max-width: 640px) {
-  .proc__groups {
-    grid-template-columns: 1fr;
+@media (min-width: 900px) {
+  .proc__group {
+    flex-basis: 260px;
   }
 }
 
