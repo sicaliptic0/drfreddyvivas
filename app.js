@@ -783,6 +783,12 @@
       }
     }
 
+    function syncAria() {
+      slides.forEach(function (slide, i) {
+        slide.setAttribute("aria-hidden", i === index ? "false" : "true");
+      });
+    }
+
     function goTo(nextIndex, stopAuto) {
       if (transitioning || nextIndex === index) return;
 
@@ -797,7 +803,6 @@
       const next = slides[nextIndex];
       transitioning = true;
 
-      next.hidden = false;
       next.classList.add("is-entering");
       void next.offsetWidth;
       next.classList.remove("is-entering");
@@ -809,8 +814,8 @@
       window.setTimeout(
         function () {
           current.classList.remove("is-leaving");
-          current.hidden = true;
           index = nextIndex;
+          syncAria();
           transitioning = false;
           if (autoplay) scheduleNext();
         },
@@ -835,6 +840,7 @@
     }
 
     updateToggleUi();
+    syncAria();
     scheduleNext();
   }
 

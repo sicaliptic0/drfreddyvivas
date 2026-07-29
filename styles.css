@@ -931,22 +931,23 @@ a:hover {
 }
 
 .proc__groups {
-  position: relative;
+  display: grid;
   background: var(--bg-elevated);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  min-height: 15.5rem;
 }
 
 .proc__group {
-  position: absolute;
-  inset: 0;
+  grid-area: 1 / 1;
+  position: relative;
+  width: 100%;
   padding: 1.75rem 1.5rem 2rem;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   transform: translateY(18px) scale(0.985);
+  z-index: 0;
   transition:
     opacity 0.9s var(--ease),
     transform 0.9s var(--ease),
@@ -954,7 +955,6 @@ a:hover {
 }
 
 .proc__group.is-active {
-  position: relative;
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
@@ -963,8 +963,6 @@ a:hover {
 }
 
 .proc__group.is-entering {
-  position: absolute;
-  inset: 0;
   opacity: 0;
   visibility: visible;
   transform: translateY(22px) scale(0.98);
@@ -972,17 +970,11 @@ a:hover {
 }
 
 .proc__group.is-leaving {
-  position: absolute;
-  inset: 0;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   transform: translateY(-16px) scale(0.985);
   z-index: 3;
-}
-
-.proc__group[hidden] {
-  display: none !important;
 }
 
 .proc__group::before {
@@ -1180,10 +1172,6 @@ a:hover {
     max-width: 720px;
   }
 
-  .proc__groups {
-    min-height: 16.5rem;
-  }
-
   .proc__group {
     padding: 2.25rem 2.5rem 2.5rem;
   }
@@ -1196,7 +1184,7 @@ a:hover {
   .proc__nav {
     width: 2.85rem;
     height: 2.85rem;
-    margin-top: 6.6rem;
+    margin-top: 7.5rem;
   }
 }
 
