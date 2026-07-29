@@ -850,7 +850,7 @@
   initCaseImages();
   initBeforeAfterSliders();
   initCaseFilters();
-  initProtectedGallery();
+  // initProtectedGallery(); // galería libre — acceso por correo desactivado
   initBioAccordions();
   initBioScroll();
   initProceduresCarousel();

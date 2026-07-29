@@ -30,24 +30,16 @@ window.SITE_CONFIG = {
   ],
 
   /**
-   * Galería protegida: bloquea y difumina la sección "Casos" hasta que el usuario
-   * confirme su correo vía enlace (magic link / OTP).
+   * Galería protegida (desactivada): la galería de casos es de acceso libre.
+   * Deja enabled en false. Si algún día quieres reactivar el acceso por correo,
+   * cambia a true y restaura el overlay en index.html.
    */
   protectedGallery: {
-    enabled: true,
+    enabled: false,
 
-    /**
-     * Supabase (Auth + DB).
-     * - url: Project URL (https://xxxx.supabase.co)
-     * - anonKey: Project API key (anon/public)
-     */
     supabase: {
       url: "https://jzmkjbucckxdjlpjckfn.supabase.co",
       anonKey: "sb_publishable_W6fZ6J8jzFP2tffYXfqgXw_AW3Rar1L",
-      /**
-       * Tabla opcional para guardar leads (email + consentimiento).
-       * Recomendado: crear tabla "leads" y permitir INSERT público con RLS.
-       */
       leadsTable: "leads",
     },
   },
