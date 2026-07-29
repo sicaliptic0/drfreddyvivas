@@ -9,10 +9,10 @@ window.SITE_CONFIG = {
    * Cambia este valor cuando sustituyas imágenes con el mismo nombre de archivo
    * para que el navegador vuelva a descargarlas (?v=… en la URL).
    */
-  mediaVersion: "20260502b",
+  mediaVersion: "20260503",
 
   /** Imagen del hero (opcional). Deja null para usar el fondo por defecto. */
-  heroImage: "images/hero.JPG",
+  heroImage: "images/hero.png",
 
   /**
    * Imágenes antes/después por cada caso, en el mismo orden que en index.html.
